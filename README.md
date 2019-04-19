@@ -10,7 +10,7 @@ PyTorch starter code for the [Visual Dialog Challenge 2019][1].
   * [Pretrained Checkpoint](#pretrained-checkpoint)
   * [Acknowledgements](#acknowledgements)
 
-If you use this code in your research, please consider citing:
+This code is derived from the following work:
 
 ```text
 @misc{desai2018visdialch,
@@ -23,18 +23,10 @@ If you use this code in your research, please consider citing:
 
 [![DOI](https://zenodo.org/badge/140210239.svg)](https://zenodo.org/badge/latestdoi/140210239)
 
-
-What's new with `v2019`?
-------------------------
-
-If you are a returning user (from Visual Dialog Challenge 2018), here are some key highlights about our offerings in `v2019` of this starter code:
-
-1. _Almost_ a complete rewrite of `v2018`, which increased speed, readability, modularity and extensibility.
-2. Multi-GPU support - try out specifying GPU ids to train/evaluate scripts as: `--gpu-ids 0 1 2 3`
-3. Docker support - we provide a Dockerfile which can help you set up all the dependencies with ease.
-4. Stronger baseline - our Late Fusion Encoder is equipped with [Bottom-up Top-Down attention][6]. We also provide pre-extracted image features (links below).
-5. Minimal pre-processed data - no requirement to download tens of pre-processed data files anymore (were typically referred as `visdial_data.h5` and `visdial_params.json`).
-
+What's new with this fork?
+--------------------------
+Compared to the original starter code, we include:
+* Additional Encoder: [Hierarchical Recurrent Encoder][14]
 
 Setup and Dependencies
 ----------------------
@@ -48,12 +40,12 @@ There are two recommended ways to set up this codebase: Anaconda or Miniconda, a
 2. Clone this repository and create an environment:
 
 ```sh
-git clone https://www.github.com/batra-mlp-lab/visdial-challenge-starter-pytorch
-conda create -n visdialch python=3.6
+git clone https://www.github.com/ardapekis/visdial-challenge-starter-pytorch visdial-starter
+conda create -n visdial python=3.6
 
 # activate the environment and install all dependencies
-conda activate visdialch
-cd visdial-challenge-starter-pytorch/
+conda activate visdial
+cd visdial-starter
 pip install -r requirements.txt
 
 # install this codebase as a package in development version
@@ -71,7 +63,7 @@ We provide a Dockerfile which creates a light-weight image with all the dependen
 
 ```sh
 cd docker
-docker build -t visdialch .
+docker build -t visdial .
 ```
 
 3. Run this image in a container by setting user+group, attaching project root (this codebase) as a volume and setting shared memory size according to your requirements (depends on the memory usage of your model).
@@ -79,10 +71,10 @@ docker build -t visdialch .
 ```sh
 nvidia-docker run -u $(id -u):$(id -g) \
                   -v $PROJECT_ROOT:/workspace \
-                  --shm-size 16G visdialch /bin/bash
+                  --shm-size 16G visdial /bin/bash
 ```
 
-We recommend this development workflow, attaching the codebase as a volume would immediately reflect source code changes inside the container environment. We also recommend containing all the source code for data loading, models and other utilities inside `visdialch` directory. Since it is a setuptools-style package, it makes handling of absolute/relative imports and module resolving less painful. Scripts using `visdialch` can be created anywhere in the filesystem, as far as the current conda environment is active.
+We recommend this development workflow, attaching the codebase as a volume would immediately reflect source code changes inside the container environment. We also recommend containing all the source code for data loading, models and other utilities inside `visdial` directory. Since it is a setuptools-style package, it makes handling of absolute/relative imports and module resolving less painful. Scripts using `visdial` can be created anywhere in the filesystem, as far as the current conda environment is active.
 
 
 Download Data
@@ -122,7 +114,7 @@ To extend this starter code, add your own encoder/decoder modules into their res
 
 ### Saving model checkpoints
 
-This script will save model checkpoints at every epoch as per path specified by `--save-dirpath`. Refer [visdialch/utils/checkpointing.py][19] for more details on how checkpointing is managed.
+This script will save model checkpoints at every epoch as per path specified by `--save-dirpath`. Refer [visdial/utils/checkpointing.py][19] for more details on how checkpointing is managed.
 
 ### Logging
 
@@ -156,9 +148,9 @@ Performance on `v1.0 test-std` (trained on `v1.0` train + val):
 
 Acknowledgements
 ----------------
-
-* This starter code began as a fork of [batra-mlp-lab/visdial-rl][14]. We thank the developers for doing most of the heavy-lifting.
-* The Lua-torch codebase of Visual Dialog, at [batra-mlp-lab/visdial][15], served as an important reference while developing this codebase.
+* This code is a fork of [batra-mlp-lab/visdial-challenge-starter-pytorch][21].
+* Which began as a fork of [batra-mlp-lab/visdial-rl][14].
+* Which was based on [batra-mlp-lab/visdial][15].
 * Some documentation and design strategies of `Metric`, `Reader` and `Vocabulary` classes are inspired from [AllenNLP][17], It is not a dependency because the use-case in this codebase would be too little in its current state.
 
 [1]: https://visualdialog.org/challenge/2019
@@ -180,3 +172,4 @@ Acknowledgements
 [18]: https://www.github.com/nvidia/nvidia-docker
 [19]: https://github.com/batra-mlp-lab/visdial-challenge-starter-pytorch/blob/master/visdialch/utils/checkpointing.py
 [20]: https://s3.amazonaws.com/visual-dialog/data/v1.0/2019/lf_gen_faster_rcnn_x101_train.pth
+[21]: https://github.com/batra-mlp-lab/visdial-challenge-starter-pytorch
