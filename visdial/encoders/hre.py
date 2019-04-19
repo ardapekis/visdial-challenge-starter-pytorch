@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.autograd import Variable
 
 from utils import utilities as utils
 
@@ -112,7 +111,7 @@ class Encoder(nn.Module):
         someTensor = self.dialogRNN.weight_hh.data
         h = someTensor.new(self.batchSize, self.dialogRNN.hidden_size).zero_()
         c = someTensor.new(self.batchSize, self.dialogRNN.hidden_size).zero_()
-        return (Variable(h), Variable(c))
+        return (h, c)
 
     def observe(self,
                 round,
