@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from visdialch.utils import DynamicRNN
+from visdial.utils import DynamicRNN
 
 
 class LateFusionEncoder(nn.Module):

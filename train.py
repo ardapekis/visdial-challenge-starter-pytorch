@@ -10,12 +10,12 @@ from tqdm import tqdm
 import yaml
 from bisect import bisect
 
-from visdialch.data.dataset import VisDialDataset
-from visdialch.encoders import Encoder
-from visdialch.decoders import Decoder
-from visdialch.metrics import SparseGTMetrics, NDCG
-from visdialch.model import EncoderDecoderModel
-from visdialch.utils.checkpointing import CheckpointManager, load_checkpoint
+from visdial.data.dataset import VisDialDataset
+from visdial.encoders import Encoder
+from visdial.decoders import Decoder
+from visdial.metrics import SparseGTMetrics, NDCG
+from visdial.model import EncoderDecoderModel
+from visdial.utils.checkpointing import CheckpointManager, load_checkpoint
 
 
 parser = argparse.ArgumentParser()

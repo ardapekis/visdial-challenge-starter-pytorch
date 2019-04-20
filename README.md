@@ -170,6 +170,6 @@ Acknowledgements
 [16]: https://visualdialog.org/challenge/2018#faq
 [17]: https://www.github.com/allenai/allennlp
 [18]: https://www.github.com/nvidia/nvidia-docker
-[19]: https://github.com/batra-mlp-lab/visdial-challenge-starter-pytorch/blob/master/visdialch/utils/checkpointing.py
+[19]: https://github.com/ardapekis/visdial-challenge-starter-pytorch/blob/master/visdial/utils/checkpointing.py
 [20]: https://s3.amazonaws.com/visual-dialog/data/v1.0/2019/lf_gen_faster_rcnn_x101_train.pth
 [21]: https://github.com/batra-mlp-lab/visdial-challenge-starter-pytorch

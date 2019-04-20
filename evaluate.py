@@ -8,12 +8,12 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import yaml
 
-from visdialch.data.dataset import VisDialDataset
-from visdialch.encoders import Encoder
-from visdialch.decoders import Decoder
-from visdialch.metrics import SparseGTMetrics, NDCG, scores_to_ranks
-from visdialch.model import EncoderDecoderModel
-from visdialch.utils.checkpointing import load_checkpoint
+from visdial.data.dataset import VisDialDataset
+from visdial.encoders import Encoder
+from visdial.decoders import Decoder
+from visdial.metrics import SparseGTMetrics, NDCG, scores_to_ranks
+from visdial.model import EncoderDecoderModel
+from visdial.utils.checkpointing import load_checkpoint
 
 
 parser = argparse.ArgumentParser(

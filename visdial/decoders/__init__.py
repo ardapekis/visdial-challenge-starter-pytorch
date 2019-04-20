@@ -1,5 +1,5 @@
-from visdialch.decoders.disc import DiscriminativeDecoder
-from visdialch.decoders.gen import GenerativeDecoder
+from visdial.decoders.disc import DiscriminativeDecoder
+from visdial.decoders.gen import GenerativeDecoder
 
 
 def Decoder(model_config, *args):

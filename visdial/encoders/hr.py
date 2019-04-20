@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from utils import utilities as utils
 
 
-class Encoder(nn.Module):
+class HierarchicalRecurrentEncoder(nn.Module):
     def __init__(self,
                  vocabSize,
                  embedSize,

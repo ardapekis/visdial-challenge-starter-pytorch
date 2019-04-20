@@ -3,11 +3,11 @@ from setuptools import setup
 
 
 setup(
-    name="visdialch",
-    version="2019.0.0",
-    author="Karan Desai",
-    url="https://github.com/batra-mlp-lab/visdial-challenge-starter-pytorch",
-    description="Starter code for VisDial challenge 2019",
+    name="visdial",
+    version="2019.1.0",
+    author="Arda Pekis",
+    url="https://github.com/ardapekis/visdial-challenge-starter-pytorch",
+    description="Modified code for VisDial challenge 2019",
     license="BSD",
     zip_safe=True,
 )
