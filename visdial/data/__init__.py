@@ -1,2 +1,2 @@
-from visdialch.data.dataset import VisDialDataset
-from visdialch.data.vocabulary import Vocabulary
+from visdial.data.dataset import VisDialDataset
+from visdial.data.vocabulary import Vocabulary
