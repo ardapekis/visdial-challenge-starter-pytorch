@@ -104,7 +104,7 @@ torch.backends.cudnn.deterministic = True
 args = parser.parse_args()
 
 # keys: {"dataset", "model", "solver"}
-config = yaml.full_load(open(args.config_yml))
+config = yaml.load(open(args.config_yml))
 
 if isinstance(args.gpu_ids, int):
     args.gpu_ids = [args.gpu_ids]
